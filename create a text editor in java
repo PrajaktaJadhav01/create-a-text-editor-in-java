@@ -1,0 +1,31 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class TextEditor {
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame("Simple Text Editor");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setSize(500, 500);
+
+            JMenuBar menuBar = new JMenuBar();
+            JMenu fileMenu = new JMenu("File");
+            JMenuItem newMenuItem = new JMenuItem("New");
+            JMenuItem openMenuItem = new JMenuItem("Open");
+            JMenuItem saveMenuItem = new JMenuItem("Save");
+
+            fileMenu.add(newMenuItem);
+            fileMenu.add(openMenuItem);
+            fileMenu.add(saveMenuItem);
+            menuBar.add(fileMenu);
+
+            frame.setJMenuBar(menuBar);
+
+            JTextArea textArea = new JTextArea();
+            JScrollPane scrollPane = new JScrollPane(textArea);
+            frame.add(scrollPane, BorderLayout.CENTER);
+
+            frame.setVisible(true);
+        });
+    }
+}
